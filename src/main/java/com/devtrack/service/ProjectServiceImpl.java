@@ -1,5 +1,6 @@
 package com.devtrack.service;
 
+import com.devtrack.interfaces.ProjectCommandService;
 import com.devtrack.interfaces.ProjectService;
 import com.devtrack.model.Milestone;
 import com.devtrack.model.ProjectDocument;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ProjectServiceImpl implements ProjectService {
+public class ProjectServiceImpl implements ProjectService, ProjectCommandService {
 
     @Autowired
     private ProjectRepository projectRepository;
@@ -65,6 +66,7 @@ public class ProjectServiceImpl implements ProjectService {
     public ProjectDocument addMilestone(String projectName, String milestoneTitle) {
         try {
             ProjectDocument project = projectRepository.findByName(projectName);
+            System.out.println("Project found: " + project);
             if (project != null) {
                 project.addMilestone(new Milestone(milestoneTitle));
                 return projectRepository.save(project);

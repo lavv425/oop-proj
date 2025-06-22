@@ -6,12 +6,26 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Represents an interactive menu system with configurable menu items and
+ * actions.
+ * Allows dynamic addition of menu options and provides a display mechanism for
+ * user interaction.
+ * Supports different types of menu commands and provides flexibility in menu
+ * navigation.
+ */
 public class Menu {
     private final String title;
+    private final boolean testMode;
     private final Map<String, MenuItem> items = new LinkedHashMap<>();
 
     public Menu(String title) {
+        this(title, false);
+    }
+
+    public Menu(String title, boolean testMode) {
         this.title = title;
+        this.testMode = testMode;
     }
 
     public void addItem(String key, String description, MenuCommand action, boolean exitAfter) {
@@ -41,7 +55,10 @@ public class Menu {
             }
 
             System.out.print("\nChoose an option: ");
+
+            if (!scanner.hasNextLine()) break;
             String choice = scanner.nextLine().trim();
+
             MenuItem item = items.get(choice);
 
             if (item != null) {
@@ -49,7 +66,9 @@ public class Menu {
 
                 if (item.exitAfter) {
                     System.out.println("Exiting...");
-                    System.exit(0);
+                    if (!testMode)
+                        System.exit(0); // bypass in test
+                    break;
                 }
 
                 if (choice.equals("0")) {

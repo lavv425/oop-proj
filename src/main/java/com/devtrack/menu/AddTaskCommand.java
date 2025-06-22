@@ -7,6 +7,11 @@ import com.devtrack.service.ProjectServiceImpl;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Represents a command to add a task to a milestone within a project.
+ * This command allows users to select a project, choose a milestone, and add a new task.
+ * It interacts with the project service to perform the task addition.
+ */
 public class AddTaskCommand implements MenuCommand {
     private final ProjectServiceImpl projectService;
 

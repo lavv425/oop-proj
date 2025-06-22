@@ -1,15 +1,15 @@
 package com.devtrack.menu;
 
+import com.devtrack.interfaces.ProjectCommandService;
 import com.devtrack.model.ProjectDocument;
-import com.devtrack.service.ProjectServiceImpl;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class AddMilestoneCommand implements MenuCommand {
-    private final ProjectServiceImpl service;
+    private final ProjectCommandService service;
 
-    public AddMilestoneCommand(ProjectServiceImpl service) {
+    public AddMilestoneCommand(ProjectCommandService service) {
         this.service = service;
     }
 

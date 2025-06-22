@@ -10,4 +10,5 @@ public interface ProjectService {
     boolean deleteProjectByName(String name);
     ProjectDocument addMilestone(String projectName, String milestoneTitle);
     ProjectDocument addTask(String projectName, String milestoneTitle, String taskTitle);
+    boolean deleteProjectById(String id);
 }
