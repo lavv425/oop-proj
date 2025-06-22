@@ -8,7 +8,7 @@
 
 ```
 src/main/java/com/devtrack
-├── factory/             # Tool factory and creation logic (future use)
+├── factory/             # Tool factory and creation logic
 ├── interfaces/          # Service interfaces
 ├── iterator/            # Task iteration abstraction (iterator pattern)
 ├── menu/                # All CLI commands and menu logic
@@ -41,7 +41,7 @@ src/main/java/com/devtrack
 
 ### Prerequisites
 
-- Java 21 or higher (tested with JDK 23)
+- Java 21 or higher (tested with JDK 21)
 - Maven 3.9+
 - MongoDB (running locally on `localhost:27017`)
 
@@ -95,7 +95,7 @@ mvn test
 
 ---
 
-## 📌 Roadmap
+## 📌 Roadmap (Possible)
 
 - [ ] REST API interface
 - [ ] Task completion toggle
