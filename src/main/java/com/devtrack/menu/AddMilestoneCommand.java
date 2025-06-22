@@ -36,7 +36,7 @@ public class AddMilestoneCommand implements MenuCommand {
         System.out.print("Milestone title: ");
         String milestone = scanner.nextLine().trim();
         if (project.getMilestones().stream().anyMatch(m -> m.getTitle().equalsIgnoreCase(milestone))) {
-            System.out.println("Milestone already exists in this project.");
+            System.out.println(String.format("Milestone '%s' already exists in this project.", milestone));
             return;
         }
 

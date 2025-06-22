@@ -66,7 +66,7 @@ public class ProjectServiceImpl implements ProjectService, ProjectCommandService
     public ProjectDocument addMilestone(String projectName, String milestoneTitle) {
         try {
             ProjectDocument project = projectRepository.findByName(projectName);
-            System.out.println("Project found: " + project);
+            // System.out.println("Project found: " + project);
             if (project != null) {
                 project.addMilestone(new Milestone(milestoneTitle));
                 return projectRepository.save(project);
