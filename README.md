@@ -43,7 +43,11 @@ src/main/java/com/devtrack
 
 - Java 21 or higher (tested with JDK 21)
 - Maven 3.9+
-- MongoDB (running locally on `localhost:27017`)
+- MongoDB
+
+### Configuration
+1. **MongoDB Connection**: Ensure MongoDB is running and accessible.
+2. **Configuration**: Update the `.env` file with your MongoDB connection details. Take a look at the `.env.example` file for reference.
 
 ### Build & Run
 
@@ -92,18 +96,6 @@ Run tests with:
 ```bash
 mvn test
 ```
-
----
-
-## 📌 Roadmap (Possible)
-
-- [ ] REST API interface
-- [ ] Task completion toggle
-- [ ] Report export (CSV/JSON)
-- [ ] CLI visual themes
-- [ ] Toolchain tracking module
-
----
 
 ## 👤 Author
 
