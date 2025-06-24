@@ -1,5 +1,6 @@
 package com.devtrack.runner;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,18 +20,20 @@ public class Application implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
+        loadProperties();
         SpringApplication.run(Application.class, args);
     }
 
     @Override
     public void run(String... args) {
-        if (System.getenv("MONGODB_URI") == null) {
-            System.err.println("[Error]: Undefined environment variable MONGODB_URI.");
-            System.exit(1);
-        }
         cli.run();
 
         System.out.println("DevTrack started.");
         // Entry point: initialize CLI, load projects, etc.
+    }
+
+    private static void loadProperties() {
+        Dotenv dotenv = Dotenv.load();
+        System.setProperty("spring.data.mongodb.uri", dotenv.get("MONGODB_URI"));
     }
 }
