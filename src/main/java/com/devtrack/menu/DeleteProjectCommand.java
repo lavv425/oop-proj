@@ -1,6 +1,7 @@
 package com.devtrack.menu;
 
 import com.devtrack.model.ProjectDocument;
+import com.devtrack.security.ExceptionShield;
 import com.devtrack.service.ProjectServiceImpl;
 import com.devtrack.utils.LoggerUtil;
 import org.slf4j.Logger;
@@ -39,8 +40,8 @@ public class DeleteProjectCommand implements MenuCommand {
         try {
             index = Integer.parseInt(input) - 1;
         } catch (NumberFormatException e) {
+            ExceptionShield.handle(e);
             logger.error("Invalid number format for input '{}'", input);
-            System.out.println("Invalid input.");
             return;
         }
 

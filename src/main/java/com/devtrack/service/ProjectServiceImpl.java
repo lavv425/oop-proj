@@ -6,6 +6,8 @@ import com.devtrack.model.Milestone;
 import com.devtrack.model.ProjectDocument;
 import com.devtrack.model.Task;
 import com.devtrack.repository.ProjectRepository;
+import com.devtrack.security.ExceptionShield;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +24,8 @@ public class ProjectServiceImpl implements ProjectService, ProjectCommandService
             ProjectDocument project = new ProjectDocument(name);
             return projectRepository.save(project);
         } catch (Exception e) {
-            System.out.println("Failed to create a project: " + e.getMessage());
+            ExceptionShield.handle(e);
+            System.err.println("Failed to create a project: " + e.getMessage());
             return null;
         }
     }
@@ -31,7 +34,8 @@ public class ProjectServiceImpl implements ProjectService, ProjectCommandService
         try {
             return projectRepository.findAll();
         } catch (Exception e) {
-            System.out.println("Failed to list projects: " + e.getMessage());
+            ExceptionShield.handle(e);
+            System.err.println("Failed to list projects: " + e.getMessage());
             return null;
         }
     }
@@ -45,7 +49,8 @@ public class ProjectServiceImpl implements ProjectService, ProjectCommandService
             }
             return false;
         } catch (Exception e) {
-            System.out.println("Failed to delete the project '" + name + "': " + e.getMessage());
+            ExceptionShield.handle(e);
+            System.err.println("Failed to delete the project '" + name + "': " + e.getMessage());
             return false;
         }
     }
@@ -58,6 +63,7 @@ public class ProjectServiceImpl implements ProjectService, ProjectCommandService
             }
             return false;
         } catch (Exception e) {
+            ExceptionShield.handle(e);
             System.err.println("Error deleting project: " + e.getMessage());
             return false;
         }
@@ -73,7 +79,8 @@ public class ProjectServiceImpl implements ProjectService, ProjectCommandService
             }
             return null;
         } catch (Exception e) {
-            System.out.println("Failed to add milestone: " + e.getMessage());
+            ExceptionShield.handle(e);
+            System.err.println("Failed to add milestone: " + e.getMessage());
             return null;
         }
     }
@@ -96,6 +103,7 @@ public class ProjectServiceImpl implements ProjectService, ProjectCommandService
             return projectRepository.save(project);
 
         } catch (Exception e) {
+            ExceptionShield.handle(e);
             System.out.println("Failed to add task: " + e.getMessage());
             return null;
         }
