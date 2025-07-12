@@ -24,13 +24,21 @@ public class CreateProjectCommand implements MenuCommand {
             String name = scanner.nextLine().trim();
             String sanitized = InputSanitizer.sanitize(name);
 
-            if (!sanitized.isEmpty()) {
-                projectService.createProject(sanitized);
-                logger.info("Project created: {}", sanitized);
-            } else {
+            if (sanitized.isEmpty()) {
                 logger.warn("Empty or invalid project name entered.");
                 System.out.println("Project name cannot be empty or contain invalid characters.");
+                return;
             }
+
+            if (projectService.listProjects().stream()
+                    .anyMatch(p -> p.getName().equalsIgnoreCase(sanitized))) {
+                logger.warn("A project with the name '{}' already exists.", sanitized);
+                System.out.println("A project with this name already exists.");
+                return;
+            }
+
+            projectService.createProject(sanitized);
+            logger.info("Project created: {}", sanitized);
 
         } catch (Exception e) {
             ExceptionShield.handle(e);
