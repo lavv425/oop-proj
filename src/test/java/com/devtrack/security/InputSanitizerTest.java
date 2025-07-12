@@ -25,4 +25,19 @@ class InputSanitizerTest {
         String sanitized = InputSanitizer.sanitize(input);
         assertEquals("", sanitized);
     }
+
+    @Test
+    void testSanitizeWithAccentsAndSymbols() {
+        assertEquals("Project 2025", InputSanitizer.sanitize("Prójéçt !@ 2025"));
+    }
+
+    @Test
+    void testSanitizeNullInput() {
+        assertEquals("", InputSanitizer.sanitize(null));
+    }
+
+    @Test
+    void testSanitizeOnlySymbols() {
+        assertEquals("", InputSanitizer.sanitize("@#$%^&*"));
+    }
 }
