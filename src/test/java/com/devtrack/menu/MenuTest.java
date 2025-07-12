@@ -1,5 +1,6 @@
 package com.devtrack.menu;
 
+import com.devtrack.interfaces.MenuCommand;
 import com.devtrack.utils.ConsoleStyle;
 import org.junit.jupiter.api.*;
 

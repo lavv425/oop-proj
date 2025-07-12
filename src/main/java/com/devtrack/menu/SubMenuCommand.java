@@ -2,6 +2,8 @@ package com.devtrack.menu;
 
 import java.util.Scanner;
 
+import com.devtrack.interfaces.MenuCommand;
+
 public class SubMenuCommand implements MenuCommand {
     private final Menu submenu;
 

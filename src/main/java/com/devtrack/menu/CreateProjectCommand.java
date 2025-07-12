@@ -1,5 +1,6 @@
 package com.devtrack.menu;
 
+import com.devtrack.interfaces.MenuCommand;
 import com.devtrack.interfaces.ProjectService;
 import com.devtrack.security.ExceptionShield;
 import com.devtrack.security.InputSanitizer;

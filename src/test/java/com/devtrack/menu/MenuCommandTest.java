@@ -2,6 +2,8 @@ package com.devtrack.menu;
 
 import org.junit.jupiter.api.Test;
 
+import com.devtrack.interfaces.MenuCommand;
+
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicBoolean;

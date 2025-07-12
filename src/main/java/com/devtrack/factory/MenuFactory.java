@@ -7,7 +7,8 @@ import com.devtrack.utils.ConsoleStyle;
 public class MenuFactory {
 
     public static Menu createMainMenu(ProjectServiceImpl service) {
-        System.out.println(ConsoleStyle.CYAN + ConsoleStyle.BOLD + "\n=== Welcome in DevTrack CLI ===" + ConsoleStyle.RESET);
+        System.out.println(
+                ConsoleStyle.CYAN + ConsoleStyle.BOLD + "\n=== Welcome in DevTrack CLI ===" + ConsoleStyle.RESET);
 
         Menu menu = new Menu("Main Menu");
 
@@ -27,8 +28,7 @@ public class MenuFactory {
         submenu.addOption("4", "List Milestones", new ListMilestonesCommand(service));
         submenu.addOption("5", "Add Task to a Milestone", new AddTaskCommand(service));
         submenu.addOption("6", "View Tasks", new ViewTasksCommand(service));
-        submenu.addOption("0", "Go Back", scanner -> {
-        });
+        submenu.addOption("0", "Go Back", scanner -> {});
 
         return submenu;
     }

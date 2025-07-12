@@ -1,5 +1,6 @@
 package com.devtrack.menu;
 
+import com.devtrack.interfaces.MenuCommand;
 import com.devtrack.model.ProjectDocument;
 import com.devtrack.security.ExceptionShield;
 import com.devtrack.service.ProjectServiceImpl;

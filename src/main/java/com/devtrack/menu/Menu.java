@@ -1,5 +1,7 @@
 package com.devtrack.menu;
 
+import com.devtrack.interfaces.Command;
+import com.devtrack.interfaces.MenuCommand;
 import com.devtrack.utils.ConsoleStyle;
 
 import java.util.LinkedHashMap;
@@ -56,7 +58,8 @@ public class Menu {
 
             System.out.print("\nChoose an option: ");
 
-            if (!scanner.hasNextLine()) break;
+            if (!scanner.hasNextLine())
+                break;
             String choice = scanner.nextLine().trim();
 
             MenuItem item = items.get(choice);

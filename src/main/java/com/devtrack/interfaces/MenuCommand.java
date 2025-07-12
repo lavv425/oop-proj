@@ -1,4 +1,4 @@
-package com.devtrack.menu;
+package com.devtrack.interfaces;
 
 import java.util.Scanner;
 

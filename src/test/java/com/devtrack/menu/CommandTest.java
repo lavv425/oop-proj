@@ -2,6 +2,8 @@ package com.devtrack.menu;
 
 import org.junit.jupiter.api.Test;
 
+import com.devtrack.interfaces.Command;
+
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.junit.jupiter.api.Assertions.*;

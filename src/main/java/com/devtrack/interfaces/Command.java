@@ -1,4 +1,4 @@
-package com.devtrack.menu;
+package com.devtrack.interfaces;
 
 /**
  * Represents a command that can be executed.
